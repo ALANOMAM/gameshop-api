@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,15 +40,24 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin') // tutti i loro url inizino con "admin/"
     ->group(function () {
 
+        /*queste due rotte fanno la stessa cosa, ovvero creano il trio con DashboardController che 
+        ho creato io dentro la cartella "admin" nella cartella "controllers" e il file 
+        "dashboard.blade.php" nella cartella "profile" */ 
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::get('/users', [DashboardController::class, 'users'])->name('users');
 
 
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        
 
         //rotta per i games 
         Route::resource('/games', GameController::class);
+
+        //rotta per i prodotti 
+        Route::resource('/products', ProductController::class);
+
+
 
 
     });

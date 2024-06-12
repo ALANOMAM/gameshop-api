@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Game;
-use App\Http\Requests\StoreGameRequest;
-use App\Http\Requests\UpdateGameRequest;
+use App\Models\Product;
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 
-class GameController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.games.index');
+        return view('admin.products.index');
     }
 
     /**
@@ -21,13 +21,13 @@ class GameController extends Controller
      */
     public function create()
     {
-         return view('admin.games.create');
+        return view('admin.products.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreGameRequest $request)
+    public function store(StoreProductRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class GameController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Game $game)
+    public function show(Product $product)
     {
         //
     }
@@ -43,15 +43,15 @@ class GameController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Game $game)
+    public function edit(Product $product)
     {
-        //return view('admin.games.edit');
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateGameRequest $request, Game $game)
+    public function update(UpdateProductRequest $request, Product $product)
     {
         //
     }
@@ -59,7 +59,7 @@ class GameController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Game $game)
+    public function destroy(Product $product)
     {
         //
     }
