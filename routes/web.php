@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +31,23 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+//per gestire tante rotte insieme sotto lo stesso middleware
+//e raggrupparle con elementi comuni 
+Route::middleware(['auth', 'verified'])
+    ->name('admin.') // i loro nomi inizino tutti con "admin.
+    ->prefix('admin') // tutti i loro url inizino con "admin/"
+    ->group(function () {
+
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+        Route::get('/users', [DashboardController::class, 'users'])->name('users');
+
+
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+        //rotta per i games 
+        Route::resource('/games', GameController::class);
+
+
+    });
