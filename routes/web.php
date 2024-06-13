@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SponsorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,6 +59,13 @@ Route::middleware(['auth', 'verified'])
         //rotta per i prodotti 
         Route::resource('/products', ProductController::class);
 
+
+         //rotta per i blogs
+         Route::resource('/blogs', BlogController::class);
+
+
+          //rotta per gli sponsors
+        Route::resource('/sponsors', SponsorController::class);
 
 
 
