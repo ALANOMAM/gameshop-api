@@ -69,7 +69,7 @@ class GameController extends Controller
 
          $newGame->save();
 
-        // return redirect()->route("admin.games.index")->with('success', 'Game succesfully created');
+        return redirect()->route("admin.games.index");//->with('success', 'Game succesfully created')
     }
 
 

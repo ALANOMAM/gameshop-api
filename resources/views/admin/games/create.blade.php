@@ -79,7 +79,7 @@
         
                     {{-- BOTTONE SUBMIT --}}
         
-                    <button type="submit" class="btn button-primary">Crea</button>
+                    <button type="submit" class="btn button-primary">Create</button>
         
                     {{-- VISIBILITA' GIOCO --}}
                       <div class="form-check mb-3 mt-2">

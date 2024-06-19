@@ -126,7 +126,6 @@
             <span class="d-flex justify-content-between align-items-center gap-2 py-3">
                 <h4>Add Game</h4>
                 <a class="text-decoration-none" href="{{route('admin.games.create')}}">
-                    (click)
                     <div class="button-add me-2 d-flex justify-content-center align-items-center">
                         <i class="fa-solid fa-plus fs-1"></i>
                     </div>

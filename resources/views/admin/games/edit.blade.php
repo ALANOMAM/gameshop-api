@@ -44,7 +44,7 @@
                     @enderror
                 </div>
     
-                {{-- IMMAGINE DEL PIATTO --}}
+                {{-- IMMAGINE DEL GIOCO --}}
         
                {{--<div class="mb-4 row d-flex flex-column mt-2">
                     <label for="dish_image">Inserisci un'immagine</label>

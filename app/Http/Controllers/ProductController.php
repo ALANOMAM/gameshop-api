@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -30,7 +31,27 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+       
+
+   //per vedere l'oggetto creato dal form
+   //dump($request);
+
+   $newProduct = new Product();
+   
+    //importo le validazioni 
+    $validated = $request->validated();
+   
+    //importo le fillables facendo passare tutto dalle validazioni 
+   $newProduct->fill($validated);
+
+   //QUESTA RIG VA MESSA DOPO AVERE STABILITO LA RELAZIONE TRA LE DUE TABELLE NELLA CARTELLA "MODEL"
+   $newProduct->user_id = Auth::id();
+
+
+    $newProduct->save();
+
+    return redirect()->route("admin.products.index");
+
     }
 
     /**
@@ -46,7 +67,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('admin.products.edit', compact('product'));
     }
 
     /**
@@ -54,7 +75,22 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+         //vedere come è acambiato l'aggetto quando modifico
+         //dump($request);
+         
+         //salvo le nuove info dentro la variabile "$data"
+         $data = $request->all();
+
+        //pezzi aggiuntivi qui
+
+
+         //Aggiorna i giochi
+         $product->update($data);
+ 
+         //salvo le modifiche
+         $product->save();
+ 
+         return redirect()->route('admin.products.index', $product);
     }
 
     /**
@@ -62,6 +98,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return redirect()->route('admin.products.index');
     }
 }

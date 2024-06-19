@@ -97,14 +97,14 @@
                                                     Are you sure you wanna cancel the product "{{ $product->name }}" ?
                                                 </div>
                                     
-                                                {{-- <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                                                    <form action="{{route('admin.dishes.destroy', $product) }}" method="POST">
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dont cancel</button>
+                                                    <form action="{{route('admin.products.destroy', $product) }}" method="POST">
                                                         @csrf
                                                         @method("DELETE")
-                                                        <button class="btn btn-orange">Elimina</button>
+                                                        <button class="btn btn-orange">Cancel</button>
                                                     </form>
-                                                </div>--}}
+                                                </div>
                                     
                                             </div>
                                         </div>
@@ -127,7 +127,6 @@
             <span class="d-flex justify-content-between align-items-center gap-2 py-3">
                 <h4>Add Product</h4>
                 <a class="text-decoration-none" href="{{route('admin.products.create')}}">
-                    (click)
                     <div class="button-add me-2 d-flex justify-content-center align-items-center">
                         <i class="fa-solid fa-plus fs-1"></i>
                     </div>
