@@ -12,6 +12,12 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    //collegamento on to many con la tabella games
+    public function games()
+    {
+        return $this->hasMany(Game::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

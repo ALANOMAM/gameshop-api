@@ -96,14 +96,14 @@
                                                     Are you sure you want to cancel the game "{{ $game->name }}" ?
                                                 </div>
                                     
-                                                {{-- <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                                                    <form action="{{route('admin.dishes.destroy', $game) }}" method="POST">
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dont cancel</button>
+                                                    <form action="{{route('admin.games.destroy', $game) }}" method="POST">
                                                         @csrf
                                                         @method("DELETE")
-                                                        <button class="btn btn-orange">Elimina</button>
+                                                        <button class="btn btn-orange">Cancel</button>
                                                     </form>
-                                                </div>--}}
+                                                </div>
                                     
                                             </div>
                                         </div>

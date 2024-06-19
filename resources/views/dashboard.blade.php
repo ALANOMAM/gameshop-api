@@ -1,5 +1,5 @@
 @extends("layouts/app")
 
 @section("content")
-  contenuto della pagina
+  <h1>ADMIN PAGE</h1>
 @endsection

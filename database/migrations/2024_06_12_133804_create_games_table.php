@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->decimal('price', 5, 2);
             $table->boolean('visible'); //->default(1)
-            $table->unsignedInteger('discount');
+            $table->unsignedInteger('discount')->nullable();
             $table->boolean('special_category'); //->default(0)
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
