@@ -11,7 +11,7 @@ class UpdateSponsorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class UpdateSponsorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+             'image' => 'file|max:3000|nullable|mimes:jpg,bmp,png',
+              'name' => 'required|max:50',
+              'fund' => 'required|numeric',
         ];
     }
 }
