@@ -77,7 +77,7 @@ class SponsorController extends Controller
 
 
 
-         
+
          //Aggiorna gli sponsors
          $sponsor->update($data);
  
@@ -92,6 +92,8 @@ class SponsorController extends Controller
      */
     public function destroy(Sponsor $sponsor)
     {
-        //
+        $sponsor->delete();
+
+        return redirect()->route('admin.sponsors.index');
     }
 }

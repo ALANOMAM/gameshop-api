@@ -90,14 +90,14 @@
                                                     Are you sure you wanna cancel the sponsor "{{ $sponsor->name }}" ?
                                                 </div>
                                     
-                                                {{-- <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                                                    <form action="{{route('admin.dishes.destroy', $sponsor) }}" method="POST">
+                                                 <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dont cancel</button>
+                                                    <form action="{{route('admin.sponsors.destroy', $sponsor) }}" method="POST">
                                                         @csrf
                                                         @method("DELETE")
-                                                        <button class="btn btn-orange">Elimina</button>
+                                                        <button class="btn btn-orange">Cancel</button>
                                                     </form>
-                                                </div>--}}
+                                                </div>
                                     
                                             </div>
                                         </div>
