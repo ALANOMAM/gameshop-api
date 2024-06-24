@@ -25,6 +25,13 @@ class User extends Authenticatable
      }
 
 
+      //collegamento on to many con la tabella degli sponsors
+    public function sponsors()
+    {
+        return $this->hasMany(Sponsor::class);
+    }
+
+
 
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Sponsor;
 use App\Http\Requests\StoreSponsorRequest;
 use App\Http\Requests\UpdateSponsorRequest;
+use Illuminate\Support\Facades\Auth;
 
 class SponsorController extends Controller
 {
@@ -30,7 +31,20 @@ class SponsorController extends Controller
      */
     public function store(StoreSponsorRequest $request)
     {
-        //
+
+         //per vedere l'oggetto creato dal form
+        //dump($request);
+
+        $newSponsor = new Sponsor();
+        $validated = $request->validated();
+        $newSponsor->fill($validated);
+
+
+        $newSponsor->user_id = Auth::id();
+
+         $newSponsor->save();
+
+         return redirect()->route("admin.sponsors.index");//->with('success', 'Game succesfully created')
     }
 
     /**
