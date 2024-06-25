@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Auth\StatsController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\OrderController;
@@ -72,7 +73,7 @@ Route::middleware(['auth', 'verified'])
           Route::resource('/orders', OrderController::class);
 
           //rotta per le statistiche 
-        Route::resource('/statistics',[StatsController::class]);
+         Route::get('/statistics',[StatsController::class, 'OrderChart']);
 
 
 
