@@ -31,6 +31,12 @@ class User extends Authenticatable
         return $this->hasMany(Sponsor::class);
     }
 
+     //collegamento on to many con la tabella dei blogs
+     public function blogs()
+     {
+         return $this->hasMany(Blog::class);
+     }
+
 
 
 

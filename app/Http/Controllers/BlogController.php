@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
+use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
@@ -30,7 +31,20 @@ class BlogController extends Controller
      */
     public function store(StoreBlogRequest $request)
     {
-        //
+          //per vedere l'oggetto creato dal form
+         //dump($request);
+
+         $newBlog = new Blog();
+         $validated = $request->validated();
+         $newBlog->fill($validated);
+         
+   
+         $newBlog->user_id = Auth::id();
+ 
+ 
+          $newBlog->save();
+ 
+          return redirect()->route("admin.blogs.index");
     }
 
     /**
@@ -46,7 +60,8 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        
+        return view('admin.blogs.edit', compact('blog'));
     }
 
     /**
@@ -54,7 +69,22 @@ class BlogController extends Controller
      */
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
-        //
+        //vedere come è acambiato l'aggetto quando modifico
+         //dump($request);
+         
+         //salvo le nuove info dentro la variabile "$data"
+         $data = $request->all();
+
+
+
+
+         //Aggiorna i blogs
+         $blog->update($data);
+ 
+         //salvo le modifiche
+         $blog->save();
+ 
+         return redirect()->route('admin.blogs.index', $blog);
     }
 
     /**
@@ -62,6 +92,8 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+
+        return redirect()->route('admin.blogs.index');
     }
 }

@@ -88,17 +88,17 @@
                                                 </div>
                                     
                                                 <div class="modal-body">
-                                                    Are you sure you wan to  eliminate "{{ $blog->name }}" ?
+                                                    Are you sure you wan to cancel "{{ $blog->id }}" ?
                                                 </div>
                                     
-                                                {{-- <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                                                    <form action="{{route('admin.dishes.destroy', $blog) }}" method="POST">
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dont cancel</button>
+                                                    <form action="{{route('admin.blogs.destroy', $blog) }}" method="POST">
                                                         @csrf
                                                         @method("DELETE")
-                                                        <button class="btn btn-orange">Elimina</button>
+                                                        <button class="btn btn-orange">Cancel</button>
                                                     </form>
-                                                </div>--}}
+                                                </div>
                                     
                                             </div>
                                         </div>

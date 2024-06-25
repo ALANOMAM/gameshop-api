@@ -11,7 +11,7 @@ class StoreBlogRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StoreBlogRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'image' => 'file|max:3000|nullable|mimes:jpg,bmp,png',
+           'description' => 'nullable|max:5000',
+           'link' => 'nullable|max:5000', 
         ];
     }
 }
+

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SponsorController;
@@ -66,6 +67,13 @@ Route::middleware(['auth', 'verified'])
 
           //rotta per gli sponsors
         Route::resource('/sponsors', SponsorController::class);
+
+          //rotta per gli ordini
+          Route::resource('/orders', OrderController::class);
+
+          //rotta per le statistiche 
+        Route::resource('/statistics',[StatsController::class]);
+
 
 
 

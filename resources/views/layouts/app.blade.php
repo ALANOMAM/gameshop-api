@@ -91,6 +91,13 @@
                                 </div>
                             </a>
 
+                            <a href="{{route('admin.orders.index')}}" class="nav-link link-no-active">
+                                <div class="d-flex gap-4 ps-3 align-items-center link" id="order-link">
+                                    <i class="fa-solid fa-cart-shopping fs-3"></i>
+                                    Your orders
+                                </div>
+                            </a>
+
                             {{--<a href="{{route('admin.')}}" class="nav-link link-no-active">
                                 <div class="d-flex gap-4 ps-3 align-items-center link" id="stats-link">
                                     <i class="fa-solid fa-chart-simple fs-3"></i>
