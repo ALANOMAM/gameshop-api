@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class GameController extends Controller
 {
+    //per ricevere api normale
     public function index() {
     
          $games = Game::all(); 
@@ -21,4 +22,24 @@ class GameController extends Controller
         ]);
 
     }
+
+    //per la paginazione 
+    public function show($id) {
+
+        // per trovare il game senza eager loading
+        // $game = Post::find($id);
+
+        $game = Game::all()->where('id', '=', $id)->first();
+
+        // dd($game);
+
+        return response()->json([
+            "success" => true,
+            "game" => $game
+        ]);
+
+    }   
+
+
+
 }
