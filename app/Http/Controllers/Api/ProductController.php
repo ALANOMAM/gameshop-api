@@ -21,4 +21,24 @@ class ProductController extends Controller
        ]);
 
    }  
+
+       //per la paginazione 
+       public function show($id) {
+
+        // per trovare il product senza eager loading
+        // $product = Post::find($id);
+
+        $product = Product::all()->where('id', '=', $id)->first();
+
+        // dd($product);
+
+        return response()->json([
+            "success" => true,
+            "product" => $product
+        ]);
+
+    } 
+
+
+
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\BlogController;
 use App\Http\Controllers\Api\GameController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\SponsorController;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,10 +28,14 @@ Route::get('/games', [GameController::class, 'index']);
 // rotta per la show del singolo game
 Route::get('/games/{id}', [GameController::class, 'show']);
 
-
+  
 
 Route::get('/blogs', [BlogController::class, 'index']);
 
 Route::get('/sponsors', [SponsorController::class, 'index']);
 
+
+//rotta per ricavare tutti i prodotti
 Route::get('/products', [ProductController::class, 'index']);
+// rotta per la show del singolo prodotto
+Route::get('/products/{id}', [ProductController::class, 'show']);
