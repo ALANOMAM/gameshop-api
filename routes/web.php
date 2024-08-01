@@ -76,6 +76,4 @@ Route::middleware(['auth', 'verified'])
          Route::get('/statistics',[StatsController::class, 'OrderChart']);
 
 
-
-
     });

@@ -4,6 +4,8 @@
 
 <!--lista tabella ordini-->
 {{--@dd($orders)--}}
+{{--@dd($lead)--}}
+
 
      <div class="container py-5 position-relative">
 

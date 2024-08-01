@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\BlogController;
 use App\Http\Controllers\Api\GameController;
+use App\Http\Controllers\Api\LeadController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\SponsorController;
 use App\Models\Product;
@@ -39,3 +40,6 @@ Route::get('/sponsors', [SponsorController::class, 'index']);
 Route::get('/products', [ProductController::class, 'index']);
 // rotta per la show del singolo prodotto
 Route::get('/products/{id}', [ProductController::class, 'show']);
+
+// creo la rotta che riceve i dati dal form front-end e li memorizza nel db
+Route::post('/new-order', [LeadController::class, 'store']);
